@@ -1,0 +1,68 @@
+/*
+ * modular-scale - Use attractive ratios to differentiate sizes.
+ *
+ * NOTE: nibble and kouto-swiss both provide their own modular scale functions
+ * that work a little differently. The kouto-swiss modular scale function is
+ * available as ks-modular-scale().
+ *
+ *  The basic way to do this:
+ *    round(base-font-size * (ms-ratio ** scale))
+ *
+ *  We also want to have it land on important-mod-num at scale = 5. This is the
+ *  scale we usually assign to h1. To accomplish that, we need to multiply
+ *  ms-ratio by a targeted number before the exponent is applied to it. We'll
+ *  call this number ms_inRatio (modular-scale important number ratio).
+ *
+ * We also want to have it land on important-mod-num at scale = 5. This is the
+ * scale we usually assign to h1. To accomplish that, we need to find a value
+ * for ms-ratio that makes that happen. We'll call this ms_inRatio.
+ *
+ *  Here is a rundown of how we find the formula for that number:
+ *
+ *    base-font-size * (ms_inRatio ** 5) = important-mod-num
+ *    ms_inRatio ** 5 = (important-mod-num / base-font-size)
+ *    ms_inRatio = (important-mod-num / base-font-size) ** (1/5)
+ *
+ * Our method is a little different from the standard one. To hit
+ * important-mod-num, the standard method creates a second set of numbers using
+ * that as the base and merges it with the first one. This means
+ * important-mod-num may not necessarily be the fifth number in the sequence.
+ *
+ * See https://github.com/scottkellum/modular-scale for a full implementation
+ * and http://modularscale.com/ for the original demo and explanation.
+ *
+ * Our method changes the ratio to ensure we hit important-mod-num at
+ * scale = 5.
+ */
+modular-scale(scale)
+  //ms_inRatio = (((important-mod-num / base-font-size) ** (1/5)) / ms-ratio)
+  //round(base-font-size * ((ms_inRatio * ms-ratio) ** scale))
+  font-size-unit = unit(base-font-size)
+  if font-size-unit == 'em'
+    round-precision = 5
+  else
+    round-precision = 0
+  ms_inRatio = ((important-mod-num / base-font-size) ** (1 / 5))
+  round(base-font-size * ((ms_inRatio) ** scale), round-precision)
+
+ms = modular-scale
+
+
+/*
+ * raw-modular-scale
+ *
+ * To get a numbers on a scale using the value of the ms-ratio setting, use
+ * raw-modular-scale() or rms().
+ *
+ * If you set important-mod-num to the result of rms(5), your numbers from rms()
+ * will be the same as what you'll get from ms().
+ */
+raw-modular-scale(scale)
+  font-size-unit = unit(base-font-size)
+  if font-size-unit == 'em'
+    round-precision = 5
+  else
+    round-precision = 0
+  round(base-font-size * (rms-ratio ** scale), round-precision)
+
+rms = raw-modular-scale

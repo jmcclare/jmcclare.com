@@ -1,0 +1,121 @@
+@import './ground-floor'
+
+@import './products'
+@import './tic-tac-toe'
+
+//
+// Site Styles
+//
+// Your site’s unique styles go in here. The framework gives you kouto-swiss,
+// the Jeet grid layout system, a few helper functions and some default styles.
+//
+// You can change the Jeet and framework settings in settings.styl.
+//
+
+// Uncomment this to highlight all block elements and help you see the layout
+// and nesting.
+//debug()
+
+
+//
+// Sample Page Layout
+//
+
+.regular-width, #top-bar nav, #bottom-bar footer
+  center()
+  padding-left: $jeet.gutter + '%'
+  padding-right: $jeet.gutter + '%'
+
+#main-content, header
+  width 100%
+
+main
+  column(2/3)
+  // Uncomment these moves to switch the main and aside.
+  //move(1/3)
+
+#main-aside
+  column(1/3)
+  // Uncomment these moves to switch the main content and aside.
+  //move(-2/3)
+  margin-top 6em
+
+
+//
+// Specific page styles
+//
+
+
+// Home Page sample product list
+.priced-items
+  clearfix()
+
+.priced-item
+  column(1/3, $cycle: 3)
+  // Use this line instead if you want the item margins to be the same width as
+  // the main page layout column margins.
+  //column(1/3 2/3, $cycle: 3)
+
+
+//
+// Size Adaptations
+//
+
+
+// medium width layout
+@media (max-width: screen-medium)
+  .regular-width, .centred, main, aside
+    max-width medium-width
+
+  main, #main-aside
+    stack()
+    unmove()
+
+  #main-aside
+    margin-top 0
+
+
+/* Small (mobile) display targeting */
+/* Lower the font sizes for small displays */
+@media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
+  .regular-width, #top-bar nav, #bottom-bar footer
+    padding-left 0
+    padding-right 0
+
+
+// mobile width layout
+@media (max-width: screen-small)
+  .priced-item
+    stack()
+
+
+/* Medium size / tablet display targeting */
+//@media only screen and (min-width: screen-small + round((screen-medium - screen-small) / 2) + 1) and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+
+
+/* Small (mobile) display targeting */
+/* Lower the font sizes for small displays */
+//@media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
+
+
+//
+// Colors
+//
+
+body
+  color #222
+
+blockquote
+  color #666
+
+#top-bar, #bottom-bar
+  background black
+  color #eee
+  a
+    color #bcf
+    text-decoration none
+    &:hover
+      color #fff
+  nav ul li
+    &:first-child a
+      padding-left 0

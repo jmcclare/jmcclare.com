@@ -1,0 +1,74 @@
+.product-list
+  clearfix()
+
+.product-mini-teaser
+  column(1/4, $cycle: 4)
+
+.product-mini-teaser
+  .product-name
+    font-size ms(1)
+    height 2em
+
+.product-mini-teaser .product-shot
+  text-align center
+  img
+    max-width 100%
+
+.product-shot
+  text-align center
+  img
+    max-width 100%
+
+
+
+//
+// Size Adaptations
+//
+
+
+// below xlarge
+@media only screen and (max-width: screen-xlarge)
+  .product-mini-teaser
+    .product-name
+      font-size ms(0)
+      //height 4em
+
+// below large
+//@media (min-width: screen-medium + 1) and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+//@media (min-width: screen-medium + 1) and (max-width: screen-large)
+@media only screen and (max-width: screen-large)
+  .product-mini-teaser
+    .product-name
+      font-size ms(-1)
+      //height 4em
+
+
+/* Medium size / tablet display targeting */
+@media only screen and (min-width: screen-small + round((screen-medium - screen-small) / 2) + 1) and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+  .product-mini-teaser
+    .product-name
+      height auto
+
+
+// max medium width layout
+@media only screen and (max-width: screen-medium)
+  .product-mini-teaser
+    column(1/2, $cycle: 2)
+
+    .product-name
+      font-size ms(0)
+
+
+/* Small (mobile) display targeting */
+/* Lower the font sizes for small displays */
+@media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
+  .product-mini-teaser
+    .product-name
+      font-size ms(0)
+      height auto
+
+
+// mobile width layout
+@media only screen and (max-width: screen-small)
+  .product-mini-teaser
+    stack()

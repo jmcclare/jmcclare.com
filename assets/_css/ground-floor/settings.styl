@@ -1,0 +1,30 @@
+
+// Modular Scale Settings
+
+// This is the font size you will get with modular-scale(0) (or ms(0)). The
+// base styles here use this for large screen size and up and shrink it a bit
+// below that.
+base-font-size ?= 16px
+// This is the font size you will get with modular-scale(5) (or ms(5)). You
+// typically want this size for your main h1 element.
+important-mod-num ?= 44px
+// This is the ratio used to scale fonts with raw-modular-scale() (rms()). We
+// set it to the golden ration by default.
+rms-ratio ?= 1.618
+// Produced the following list of values ?= 14, 17, 23, 27, 37, 44, 59, 71, 95, 115;
+// http://www.modularscale.com by Tim Brown
+// https://github.com/scottkellum/modular-scale by scottkellum
+
+
+// Media Queries
+
+screen-small ?= 480px
+screen-medium ?= 800px
+screen-large ?= 1280px
+screen-xlarge ?= 1440px
+// We override this here to make it the same as screen-xlarge. To set this, set
+// screen-xlarge.
+$jeet.max-width = screen-xlarge
+
+
+top-bar-height ?= base-font-size * 3

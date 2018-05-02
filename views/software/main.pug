@@ -1,0 +1,47 @@
+extend /layout
+
+block main-content
+  #tic-tac-toe
+  p
+    | This is the finished&#32;
+    a(href='https://reactjs.org/tutorial/tutorial.html') Tic Tac Toe tutorial from reactjs.org
+    | .
+
+  p
+    | The main JSX code for this sample app is in&#32;
+    code site_modules/assets/_js/
+
+  p
+    | That is linked to&#32;
+    code assets/_js/tic-tac-toe
+
+  p
+    | The&#32;
+    code Game
+    | &#32;component is imported and rendered by&#32;
+    code assets/_js/react-app.jsx
+
+  p
+    | Webpack is setup to compile the JSX starting with&#32;
+    code assets/_js/react-app.jsx
+    | &#32;as an entry point. See&#32;
+    code core/webpack.config.coffee
+    | &#32;and&#32;
+    code gulpfile.coffee
+
+  p
+    | The template for this page (
+    code views/react-sample.pug
+    | ) adds a script tag that links to&#32;
+    code /_js/react-app.js
+
+  p
+    | That’s where WebPack either serves or writes the compiled JavaScript.
+
+  p
+    | The CSS is in&#32;
+    code site_modules/assets/_css/
+
+  p
+    | That is linked to&#32;
+    code assets/_css/tic-tac-toe

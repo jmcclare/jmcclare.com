@@ -1,0 +1,69 @@
+{
+  "name": "koa-template",
+  "version": "1.0.0",
+  "description": "Koa v2 site template.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmcclare/koa-template"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "start": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=development nodemon -e coffee,styl,pug,json --ignore ./build --ignore ./public --exec 'coffee --transpile ./'",
+    "dev": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=development nodemon -e coffee,js,jsx,styl,pug,json --ignore ./build --exec '(sleep 10 && gulp) & coffee --transpile ./'",
+    "test": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=test nodemon -e coffee,jsx,styl,pug,json --exec 'mocha --check-leaks --reporter nyan dev-test'",
+    "build": "gulp",
+    "clean": "gulp clean",
+    "cont-build": "nodemon -e coffee,styl,pug,js,jsx,css,json,jpg,jpeg,png,ico --ignore ./build --exec 'sleep 3 && gulp'",
+    "start-prod": "NODE_PATH=build/lib:build/site_modules:$NODE_PATH node ./build",
+    "test-prod": "NODE_PATH=build/lib:build/site_modules:$NODE_PATH NODE_ENV=production-test mocha --check-leaks --reporter nyan ./build/test/index.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.2.2",
+    "debug": "^3.1.0",
+    "jeet": "^7.2.0",
+    "koa": "^2.5.0",
+    "koa-error": "^3.2.0",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
+    "koa-stylus": "^0.1.0",
+    "koa-webpack": "^3.0.2",
+    "kouto-swiss": "^1.1.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "webpack": "^4.4.1",
+    "webpack-stream": "^4.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-coffee": "^3.0.2",
+    "gulp-newer": "^1.4.0",
+    "gulp-shell": "^0.6.5",
+    "gulp-stylus": "^2.7.0",
+    "del": "^3.0.0",
+    "rsync": "^0.6.1",
+    "should": "^13.2.1",
+    "mocha": "^5.0.4",
+    "supertest": "^3.0.0"
+  }
+}

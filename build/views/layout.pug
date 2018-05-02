@@ -1,0 +1,168 @@
+doctype html
+html.no-js(lang="")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    - var titleAddition = (section === 'site-root' ? '' : ' - Koa Site Template')
+    title #{title}#{titleAddition}
+    meta(name="description" content="#{description}")
+    meta(name='author', content='#{author}')
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+    link(rel="apple-touch-icon" href="apple-touch-icon.png")
+
+    block styles
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',  type='text/css')
+      //- Icon font Font Awesome: http://fontawesome.com/
+      //- Change this to the specific fontawesome set you are using. See
+      //- public/_css/fontawesome/css for available sets.
+      link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+
+      link(rel="stylesheet" href="/_css/site.css")
+
+    block head-js
+      script(src="/_js/lib/modernizr-2.8.3.min.js")
+
+    - if (baseURL) {
+    base(href='#{baseURL}')
+    - }
+  body
+    block body
+      //
+          [if lt IE 9]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+          <![endif]
+
+      // Github banner for the sample site. You won’t need this on most sites you
+      // build.
+      a(href="https://github.com/jmcclare/koa-template")
+        img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub")
+
+      #top-bar
+        nav
+          ul
+            li
+              a(href=router.url('home')) Home
+            li
+              a(href=router.url('products')) Products
+            li
+              a(href=router.url('react-sample')) React Sample
+
+      block flash
+        //-- var infoFlash = req.flash('info').pop();
+        //-- var errorFlash = req.flash('error').pop();
+
+        - if (infoFlash || errorFlash) {
+        div#flash
+
+          - if (infoFlash) {
+          .alert-box
+            != infoFlash
+            a.close(href='') ×
+          - }
+
+          - if (errorFlash) {
+          .alert-box.alert
+            != errorFlash
+            a.close(href='') ×
+          - }
+        - }
+
+      block body-main
+        .regular-width
+          main
+            header
+              block main-header
+                h1 #{title}
+                - if (subHeading) {
+                  h2.subheading #{subHeading}
+                - }
+            #main-content
+              block main-content
+
+          aside#main-aside
+            block main-aside
+              h1 Getting Started
+              p.
+                This template includes some basic styles you can modify, play around
+                with, or totally destroy to get going.
+
+              section
+                h1 Other Resources
+                p.
+                  For more information on how to use this site template, see the
+                  following:
+
+                ul.disc
+                  li
+                    a(href='http://koajs.com/') Koa 2 Node.js framework
+                    br
+                    | The Node.js framework this site runs on.
+                  li
+                    a(href='https://reactjs.org/') React UI framework
+                    |  with support for&#32;
+                    a(href='https://reactjs.org/docs/introducing-jsx.html') JSX
+                  li
+                    a(href='http://coffeescript.org/') CoffeeScript
+                    br
+                    | The JavaScript shorthand this site template uses.
+                  li
+                    | Integrated tests with&#32;
+                    a(href='https://mochajs.org/') Mocha
+                    |  and&#32;
+                    a(href='https://github.com/visionmedia/supertest') Supertest
+                  li
+                    | continuous, incremental builds with&#32;
+                    a(href='https://gulpjs.com/') Gulp
+                    |  and&#32;
+                    a(href='https://webpack.js.org/') Webpack
+                  li
+                    a(href='https://pugjs.org') Pug
+                    br
+                    | Simplified, indentation based template system.
+                  li
+                    a(href='http://stylus-lang.com/') Stylus
+                    br
+                    | Powerful, indentation based CSS preprocessor.
+                    ul
+                      li
+                        a(href='http://kouto-swiss.io/') kouto-swiss Stylus framework
+                      li
+                        a(href='https://jeet.gs/') Jeet Stylus grid system
+                  li
+                    a(href='https://fontawesome.com/') Font Awesome icon font
+
+      #bottom-bar
+        footer
+          section.social-media
+            h1 Follow Us
+            //-I have to add the HTML entity code spaces (&#32;) below because my
+            //-text editor removes any trailing space for me when I save the
+            //-file.
+            p.icons
+              a(href='#', title='Koa Template on Facebook')
+                span.fab.fa-facebook-square
+              | &#32;
+              a(href='#', title='Koa Template on YouTube')
+                span.fab.fa-youtube-square
+              | &#32;
+              a(href='#', title='Koa Template on Twitter')
+                span.fab.fa-twitter-square
+              | &#32;
+              a(href='#', title='Koa Template on Instagram')
+                span.fab.fa-instagram
+              | &#32;
+              a(href='#', title='Koa Template on tumblr')
+                span.fab.fa-tumblr-square
+          section.copyright
+            p &copy; Company 2012
+
+
+      block post-js
+        script(src="/_js/site.js")
+
+
+      block analytics
+        // Google Analytics: change UA-XXXXX-Y to be your site's ID.
+        script  window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date; ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        script(src="https://www.google-analytics.com/analytics.js" async defer)
