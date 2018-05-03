@@ -16,8 +16,6 @@ import webpackConfig from './webpack.config'
 import { inProd } from './utils'
 import loggerSetup from './logger'
 
-import { productsRouter } from 'products'
-
 
 app = new Koa()
 topRouter = new Router()
