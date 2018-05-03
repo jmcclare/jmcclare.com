@@ -62,7 +62,11 @@ webpackConfig = (mode) ->
             # Including the whole `site_modules` directory covers a lot, but
             # it’s easier than including each module’s `assets/_js` dir and it
             # hasn’t caused any problems.
-            include: [path.resolve(appRoot, 'assets', '_js'), path.resolve(appRoot, 'site_modules')]
+            include: [
+              path.resolve(appRoot, 'assets', '_js'),
+              path.resolve(appRoot, 'site_modules'),
+              path.resolve(appRoot, 'src')
+            ]
           }, {
             test: /\.coffee?$/,
             loader: 'coffee-loader',

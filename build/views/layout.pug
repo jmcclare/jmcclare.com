@@ -33,10 +33,11 @@ html.no-js(lang="")
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
           <![endif]
 
-      // Github banner for the sample site. You won’t need this on most sites you
-      // build.
-      a(href="https://github.com/jmcclare/koa-template")
-        img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub")
+      block body-top
+        // Github ba nner for the sample site. You won’t need this on most sites you
+        // build.
+        a(href="https://github.com/jmcclare/koa-template")
+          img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub")
 
       #top-bar
         nav
@@ -44,9 +45,7 @@ html.no-js(lang="")
             li
               a(href=router.url('home')) Home
             li
-              a(href=router.url('products')) Products
-            li
-              a(href=router.url('react-sample')) React Sample
+              a(href=router.url('software')) Software
 
       block flash
         //-- var infoFlash = req.flash('info').pop();
@@ -146,7 +145,7 @@ html.no-js(lang="")
               a(href='#', title='Koa Template on YouTube')
                 span.fab.fa-youtube-square
               | &#32;
-              a(href='#', title='Koa Template on Twitter')
+              a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
                 span.fab.fa-twitter-square
               | &#32;
               a(href='#', title='Koa Template on Instagram')

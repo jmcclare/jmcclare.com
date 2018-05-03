@@ -68,7 +68,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var app, debug, errorEnv, global_locals_for_all_pages, logger, loggerOpts, pug, stylusCompile, topRouter, viewPath;
+var app, debug, errorEnv, global_locals_for_all_pages, logger, loggerOpts, pug, softRouter, stylusCompile, topRouter, viewPath;
 
 debug = (0, _debug2.default)('core');
 
@@ -174,22 +174,33 @@ app.use((0, _koaStatic2.default)(_path2.default.join(__dirname, '../public')));
 topRouter.get('home', '/', function (ctx, next) {
   var locals;
   locals = {
-    title: 'Home Page',
-    subHeading: 'A template for a Node.js Koa site'
+    title: 'Jonathan MᶜClare'
   };
+  //subHeading: 'A template for a Node.js Koa site'
   return ctx.render('home', locals, true);
 });
 
-topRouter.get('react-sample', '/react-sample', function (ctx, next) {
+softRouter = new _koaRouter2.default();
+
+softRouter.get('software', '/', function (ctx, next) {
   var locals;
   locals = {
-    title: 'React Sample',
-    subHeading: 'Tic Tac Toe'
+    title: 'Software Development'
   };
-  return ctx.render('react-sample', locals, true);
+  //subHeading: 'A React app that simulates investment growth and returns over time.'
+  return ctx.render('software/main', locals, true);
 });
 
-topRouter.use('/products', _products.productsRouter.routes(), _products.productsRouter.allowedMethods());
+softRouter.get('software-icalc', '/investment-calc', function (ctx, next) {
+  var locals;
+  locals = {
+    title: 'Investment Calculator',
+    subHeading: 'A React app that simulates investment growth and returns over time.'
+  };
+  return ctx.render('software/icalc', locals, true);
+});
+
+topRouter.use('/software', softRouter.routes(), softRouter.allowedMethods());
 
 app.use(topRouter.routes()).use(topRouter.allowedMethods());
 

@@ -25,7 +25,7 @@ describe 'home page', ->
         if err
           return done err
         res.should.be.html
-        assert res.text.indexOf('<title>Home Page') != -1
+        assert res.text.indexOf('<title>Jonathan MᶜClare') != -1
         done()
     # Add a blank return so that CoffeeScript doesn’t put one in front of the
     # request call. That confuses Mocha. If you put a `return` in front of the
@@ -39,4 +39,4 @@ describe 'home page', ->
       .get('/')
       .expect(200)
       .then (res) =>
-        assert res.text.indexOf('<title>Home Page') != -1
+        assert res.text.indexOf('<title>Jonathan MᶜClare') != -1

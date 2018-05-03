@@ -35,7 +35,7 @@ describe('home page', function () {
         return done(err);
       }
       res.should.be.html;
-      (0, _assert2.default)(res.text.indexOf('<title>Home Page') !== -1);
+      (0, _assert2.default)(res.text.indexOf('<title>Jonathan MᶜClare') !== -1);
       return done();
     });
   });
@@ -46,7 +46,7 @@ describe('home page', function () {
   // call to `request` Mocha assumes you are giving it a promise.
   return it('responds with text again', function () {
     return (0, _supertest2.default)(server).get('/').expect(200).then(function (res) {
-      return (0, _assert2.default)(res.text.indexOf('<title>Home Page') !== -1);
+      return (0, _assert2.default)(res.text.indexOf('<title>Jonathan MᶜClare') !== -1);
     });
   });
 });

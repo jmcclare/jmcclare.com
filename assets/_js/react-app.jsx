@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import Swiggity from './swiggity'
 import Toggle from './toggle'
 import TicTacToe from './tic-tac-toe'
+import ICalc from './investment-calc'
 
 console.log('Console message from react-app.jsx')
 
@@ -17,7 +18,12 @@ console.log('Console message from react-app.jsx')
   //document.getElementById('react-test')
 //)
 
+//ReactDOM.render(
+  //<TicTacToe />,
+  //document.getElementById('tic-tac-toe')
+//)
+
 ReactDOM.render(
-  <TicTacToe />,
-  document.getElementById('tic-tac-toe')
+  <ICalc />,
+  document.getElementById('investment-calc')
 )

@@ -1019,49 +1019,41 @@ footer .social-media .icons {
     margin-right: auto;
   }
 }
-#tic-tac-toe {
-  margin: 0.5em 0;
+.vars-form {
+  width: 27em;
 }
-.board-rowafter {
-  clear: both;
-  content: "";
+.vars-form .input-line::after {
+  content: '';
   display: table;
+  clear: both;
 }
-.status {
-  margin-bottom: 10px;
+.vars-form .input-line input {
+  float: right;
+  margin-top: -0.5em;
 }
-.square {
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+.vars-form .error {
+  color: #f00;
+  text-align: right;
+  margin-top: 0.1em;
+  font-size: 90%;
 }
-.squarefocus {
-  outline: none;
+.financial-results,
+.financial-results table,
+thead,
+tbody,
+tfoot,
+tr {
+  width: 100%;
 }
-.kbd-navigation .squarefocus {
-  background: #ddd;
+.financial-results tr:nth-child(even) {
+  background-color: #eee;
 }
-.game {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-.game-info {
-  margin-left: 20px;
+.financial-results .passiveGrowth,
+.financial-results .spent,
+.financial-results .total,
+.financial-results .iPassiveGrowth,
+.financial-results .iTotal {
+  text-align: right;
 }
 .regular-width,
 #top-bar nav,
