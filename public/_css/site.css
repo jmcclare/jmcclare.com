@@ -849,6 +849,12 @@ footer .social-media .icons {
     font-size: 1em;
   }
 }
+@media only screen and (min-width: 641px) {
+  #top-bar nav ul li:first-child a,
+  #bottom-bar nav ul li:first-child a {
+    padding-left: 0;
+  }
+}
 @media only screen and (max-width: 640px) {
   p,
   ul,
@@ -1108,8 +1114,4 @@ blockquote {
 #top-bar a:hover,
 #bottom-bar a:hover {
   color: #fff;
-}
-#top-bar nav ul li:first-child a,
-#bottom-bar nav ul li:first-child a {
-  padding-left: 0;
 }

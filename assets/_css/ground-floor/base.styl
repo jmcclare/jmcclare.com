@@ -249,6 +249,15 @@ footer
     font-size ms(0) - round(ms(0) / 10)
 
 
+/* small (mobile) size and larger */
+@media only screen and (min-width: screen-small + round((screen-medium - screen-small) / 2) + 1)
+  // Make the first nav link flush against the side.
+  #top-bar, #bottom-bar
+    nav ul li
+      &:first-child a
+        padding-left 0
+
+
 /* Small (mobile) display targeting */
 /* Lower the font sizes for small displays */
 @media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
