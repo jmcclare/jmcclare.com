@@ -3,7 +3,7 @@ html.no-js(lang="")
   head
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
-    - var titleAddition = (section === 'site-root' ? '' : ' - Jonathan MᶜClare')
+    - var titleAddition = (section === 'site-root' ? '' : ' — Jonathan MᶜClare')
     title #{title}#{titleAddition}
     meta(name="description" content="#{description}")
     meta(name='author', content='#{author}')
@@ -69,7 +69,7 @@ html.no-js(lang="")
         - }
 
       block body-main
-        .regular-width
+        #body-main
           main
             block main-header
               header

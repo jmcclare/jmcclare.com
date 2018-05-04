@@ -206,7 +206,7 @@ ul,
 ol,
 dl {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 0.95em;
+  font-size: 1em;
 }
 blockquote * {
   font-family: serif;
@@ -217,7 +217,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0.81858em 0 0.70534em 0;
+  margin: 0.75786em 0 0.57435em 0;
 }
 header {
   margin: 1em 0;
@@ -235,25 +235,25 @@ dl,
 blockquote,
 pre,
 table {
-  margin: 0.81858em 0;
+  margin: 0.75786em 0;
 }
 ul {
   padding-left: 1.5em;
 }
 blockquote {
-  margin-left: 0.95em;
-  margin-right: 0.95em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 a.external {
   background: url("/_img/ground-floor/external-link-icon-light.png") no-repeat scroll right center transparent;
   padding-right: 13px;
 }
 dt {
-  margin: 0.95em 0 0 0;
+  margin: 1em 0 0 0;
   font-style: italic;
 }
 dd {
-  margin: 0.475em 0 0 0.95em;
+  margin: 0.5em 0 0 1em;
 }
 pre,
 code,
@@ -278,7 +278,7 @@ samp {
   color: #666;
 }
 .codeblock {
-  padding: 0.475em;
+  padding: 0.5em;
   border-radius: 6px;
 }
 .codeblock,
@@ -295,45 +295,45 @@ samp {
   border: none;
 }
 h1 {
-  font-size: 2em;
+  font-size: 4em;
 }
 .subheading {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 h2 {
-  font-size: 1.72333em;
+  font-size: 3.03143em;
 }
 h3 {
-  font-size: 1.48493em;
+  font-size: 2.2974em;
 }
 h4 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 h5 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 h6 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section h1,
 footer h1 {
-  font-size: 1.72333em;
+  font-size: 3.03143em;
 }
 section h2,
 footer h2 {
-  font-size: 1.48493em;
+  font-size: 2.2974em;
 }
 section h3,
 footer h3 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 section h4,
 footer h4 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section h5,
 footer h5 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section h1,
 footer section h1,
@@ -341,7 +341,7 @@ section article h1,
 footer article h1,
 section footer h1,
 footer footer h1 {
-  font-size: 1.48493em;
+  font-size: 2.2974em;
 }
 section section h2,
 footer section h2,
@@ -349,7 +349,7 @@ section article h2,
 footer article h2,
 section footer h2,
 footer footer h2 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 section section h3,
 footer section h3,
@@ -357,7 +357,7 @@ section article h3,
 footer article h3,
 section footer h3,
 footer footer h3 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section section h4,
 footer section h4,
@@ -365,7 +365,7 @@ section article h4,
 footer article h4,
 section footer h4,
 footer footer h4 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section section h1,
 footer section section h1,
@@ -385,7 +385,7 @@ section article footer h1,
 footer article footer h1,
 section footer footer h1,
 footer footer footer h1 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 section section section h2,
 footer section section h2,
@@ -405,7 +405,7 @@ section article footer h2,
 footer article footer h2,
 section footer footer h2,
 footer footer footer h2 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section section section h3,
 footer section section h3,
@@ -425,7 +425,7 @@ section article footer h3,
 footer article footer h3,
 section footer footer h3,
 footer footer footer h3 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section section section h1,
 footer section section section h1,
@@ -481,7 +481,7 @@ section article footer footer h1,
 footer article footer footer h1,
 section footer footer footer h1,
 footer footer footer footer h1 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section section section section h2,
 footer section section section h2,
@@ -537,7 +537,7 @@ section article footer footer h2,
 footer article footer footer h2,
 section footer footer footer h2,
 footer footer footer footer h2 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section section section section h1,
 footer section section section section h1,
@@ -701,35 +701,35 @@ section article footer footer footer h1,
 footer article footer footer footer h1,
 section footer footer footer footer h1,
 footer footer footer footer footer h1 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 aside h1 {
-  font-size: 1.48493em;
+  font-size: 2.2974em;
 }
 aside h2 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 aside h3 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 aside h4 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 aside h5,
 aside h6 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section aside h1,
 footer aside h1 {
-  font-size: 1.27952em;
+  font-size: 1.7411em;
 }
 section aside h2,
 footer aside h2 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section aside h3,
 footer aside h3 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section aside h1,
 footer section aside h1,
@@ -737,7 +737,7 @@ section article aside h1,
 footer article aside h1,
 section footer aside h1,
 footer footer aside h1 {
-  font-size: 1.10252em;
+  font-size: 1.31951em;
 }
 section section aside h2,
 footer section aside h2,
@@ -745,7 +745,7 @@ section article aside h2,
 footer article aside h2,
 section footer aside h2,
 footer footer aside h2 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 section section section aside h1,
 footer section section aside h1,
@@ -765,7 +765,7 @@ section article footer aside h1,
 footer article footer aside h1,
 section footer footer aside h1,
 footer footer footer aside h1 {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 aside p,
 aside ul,
@@ -777,7 +777,7 @@ aside dd,
 aside blockquote,
 aside pre,
 aside table {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 #top-bar,
 #bottom-bar {
@@ -787,7 +787,7 @@ aside table {
   list-style: none;
   margin: 0;
   padding: 0;
-  line-height: 2.85em;
+  line-height: 3em;
 }
 #top-bar ul >li {
   display: block;
@@ -795,7 +795,7 @@ aside table {
 }
 #top-bar ul >li a {
   display: block;
-  height: 2.85em;
+  height: 3em;
   padding: 0 15px;
 }
 footer {
@@ -814,7 +814,7 @@ footer h6 {
 }
 footer .social-media .icons {
   text-align: justify;
-  font-size: 2.32109em;
+  font-size: 5.27803em;
 }
 .video-container {
   position: relative;
@@ -846,7 +846,7 @@ footer .social-media .icons {
   blockquote,
   pre,
   table {
-    font-size: 0.95em;
+    font-size: 1em;
   }
 }
 @media only screen and (min-width: 641px) {
@@ -866,50 +866,50 @@ footer .social-media .icons {
   blockquote,
   pre,
   table {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   h1 {
-    font-size: 1.72333em;
+    font-size: 3.03143em;
   }
   .subHeading {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   section h1 {
-    font-size: 1.48493em;
+    font-size: 2.2974em;
   }
   section section h1 {
-    font-size: 1.27952em;
+    font-size: 1.7411em;
   }
   section section section h1 {
-    font-size: 1.10252em;
+    font-size: 1.31951em;
   }
   section section section section h1 {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   section section section section section h1 {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   h2 {
-    font-size: 1.48493em;
+    font-size: 2.2974em;
   }
   h3 {
-    font-size: 1.27952em;
+    font-size: 1.7411em;
   }
   h4 {
-    font-size: 1.10252em;
+    font-size: 1.31951em;
   }
   h5 {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   h6 {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   #top-bar ul >li {
     float: none;
     width: 100%;
   }
   footer .social-media .icons {
-    font-size: 2em;
+    font-size: 4em;
   }
 }
 .vars-form {
@@ -948,7 +948,53 @@ tr {
 .financial-results .iTotal {
   text-align: right;
 }
+body {
+  color: #222;
+  background-color: #fff;
+  background-image: url("/_img/background-gradient.png");
+  background-size: 100%;
+  background-repeat: repeat-y;
+}
+blockquote {
+  color: #666;
+}
+#top-bar,
+#bottom-bar {
+  color: #eee;
+}
+#top-bar a,
+#bottom-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+#top-bar a:hover,
+#bottom-bar a:hover {
+  color: #ddd;
+}
+#top-bar nav,
+#body-main,
+#bottom-bar footer {
+  background-color: #c02;
+  box-shadow: 0px 2px 10px #808080;
+}
+#body-main {
+  background: #fff;
+}
+#body-main main header h1 {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+#body-main h1,
+#body-main h2,
+#body-main h3,
+#body-main h4,
+#body-main h5,
+#body-main h6 {
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #ddd;
+}
 .regular-width,
+#body-main,
 #top-bar nav,
 #bottom-bar footer {
   width: auto;
@@ -959,15 +1005,28 @@ tr {
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
-  padding-left: 3%;
-  padding-right: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 .regular-width::after,
+#body-main::after,
 #top-bar nav::after,
 #bottom-bar footer::after {
   content: '';
   display: table;
   clear: both;
+}
+#top-bar {
+  padding-bottom: 1em;
+}
+#top-bar nav {
+  padding-bottom: 0.25em;
+}
+#body-main {
+  margin-top: 0.5em;
+}
+#body-main main header {
+  margin: 3em 0;
 }
 #main-content,
 header {
@@ -977,9 +1036,9 @@ main {
   float: left;
   clear: none;
   text-align: inherit;
-  width: 65.66666666666666%;
+  width: 65.99999999999999%;
   margin-left: 0%;
-  margin-right: 3%;
+  margin-right: 2%;
 }
 main::after {
   content: '';
@@ -993,9 +1052,9 @@ main:last-child {
   float: left;
   clear: none;
   text-align: inherit;
-  width: 31.33333333333333%;
+  width: 31.999999999999996%;
   margin-left: 0%;
-  margin-right: 3%;
+  margin-right: 2%;
   margin-top: 6em;
 }
 #main-aside::after {
@@ -1006,35 +1065,37 @@ main:last-child {
 #main-aside:last-child {
   margin-right: 0%;
 }
-.priced-items::after {
+#bottom-bar footer {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-top: 1.5em;
+}
+.software-content .project::after {
   content: '';
   display: table;
   clear: both;
 }
-.priced-item {
+.software-content .project .feature-image,
+.software-content .project .details {
   float: left;
   clear: none;
   text-align: inherit;
-  width: 31.33333333333333%;
+  width: 49%;
   margin-left: 0%;
-  margin-right: 3%;
+  margin-right: 2%;
 }
-.priced-item::after {
+.software-content .project .feature-image::after,
+.software-content .project .details::after {
   content: '';
   display: table;
   clear: both;
 }
-.priced-item:nth-child(n) {
-  margin-right: 3%;
-  float: left;
-  clear: none;
-}
-.priced-item:nth-child(3n) {
+.software-content .project .feature-image:last-child,
+.software-content .project .details:last-child {
   margin-right: 0%;
-  float: right;
 }
-.priced-item:nth-child(3n + 1) {
-  clear: both;
+.software-content .project .details {
+  padding: 1em 0;
 }
 @media (max-width: 800px) {
   .regular-width,
@@ -1095,23 +1156,3 @@ main:last-child {
 /* Medium size / tablet display targeting */
 /* Small (mobile) display targeting */
 /* Lower the font sizes for small displays */
-body {
-  color: #222;
-}
-blockquote {
-  color: #666;
-}
-#top-bar,
-#bottom-bar {
-  color: #eee;
-  background: #000;
-}
-#top-bar a,
-#bottom-bar a {
-  color: #bcf;
-  text-decoration: none;
-}
-#top-bar a:hover,
-#bottom-bar a:hover {
-  color: #fff;
-}
