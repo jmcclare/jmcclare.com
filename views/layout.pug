@@ -16,7 +16,7 @@ html.no-js(lang="")
       //- Icon font Font Awesome: http://fontawesome.com/
       //- Change this to the specific fontawesome set you are using. See
       //- public/_css/fontawesome/css for available sets.
-      //-link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+      link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
 
       link(rel="stylesheet" href="/_css/site.css")
 
@@ -141,26 +141,28 @@ html.no-js(lang="")
           block footer
             footer
               block footer-content
-                section.social-media
-                  h1 Follow Us
-                  //-I have to add the HTML entity code spaces (&#32;) below because my
-                  //-text editor removes any trailing space for me when I save the
-                  //-file.
-                  p.icons
-                    a(href='#', title='Koa Template on Facebook')
-                      span.fab.fa-facebook-square
-                    | &#32;
-                    a(href='#', title='Koa Template on YouTube')
-                      span.fab.fa-youtube-square
-                    | &#32;
-                    a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
-                      span.fab.fa-twitter-square
-                    | &#32;
-                    a(href='#', title='Koa Template on Instagram')
-                      span.fab.fa-instagram
-                    | &#32;
-                    a(href='#', title='Koa Template on tumblr')
-                      span.fab.fa-tumblr-square
+                block social-media
+                  section.social-media
+                    h1 Follow Us
+                    //-I have to add the HTML entity code spaces (&#32;) below because my
+                    //-text editor removes any trailing space for me when I save the
+                    //-file.
+                    p.icons
+                      a(href='#', title='Koa Template on Facebook')
+                        span.fab.fa-facebook-square
+                      | &#32;
+                      a(href='#', title='Koa Template on YouTube')
+                        span.fab.fa-youtube-square
+                      | &#32;
+                      a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
+                        span.fab.fa-twitter-square
+                      | &#32;
+                      a(href='#', title='Koa Template on Instagram')
+                        span.fab.fa-instagram
+                      | &#32;
+                      a(href='#', title='Koa Template on tumblr')
+                        span.fab.fa-tumblr-square
+                block copyright
                   section.copyright
                     - var currentDate = new Date()
                     - var currentYear = currentDate.getUTCFullYear()
