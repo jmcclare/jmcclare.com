@@ -1001,6 +1001,9 @@ header,
 #main-header h1 {
   font-size: 5em;
 }
+#bottom-bar .copyright * {
+  color: #ccc;
+}
 .regular-width,
 #main-header-content,
 #main-content,
