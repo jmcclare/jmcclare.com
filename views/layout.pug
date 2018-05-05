@@ -16,7 +16,7 @@ html.no-js(lang="")
       //- Icon font Font Awesome: http://fontawesome.com/
       //- Change this to the specific fontawesome set you are using. See
       //- public/_css/fontawesome/css for available sets.
-      link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+      //-link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
 
       link(rel="stylesheet" href="/_css/site.css")
 
@@ -72,67 +72,69 @@ html.no-js(lang="")
         #body-main
           main
             block main-header
-              header
-                h1 #{title}
-                - if (subHeading) {
-                  h2.subheading #{subHeading}
-                - }
+              header#main-header
+                #main-header-content
+                  h1 #{title}
+                  - if (subHeading) {
+                    h2.subheading #{subHeading}
+                  - }
             block main-content
               #main-content
                 block main-content-content
 
           block main-aside
             aside#main-aside
-              block main-aside-content
-                h1 Getting Started
-                p.
-                  This template includes some basic styles you can modify, play around
-                  with, or totally destroy to get going.
-
-                section
-                  h1 Other Resources
+              #main-aside-content
+                block main-aside-content
+                  h1 Getting Started
                   p.
-                    For more information on how to use this site template, see the
-                    following:
+                    This template includes some basic styles you can modify, play around
+                    with, or totally destroy to get going.
 
-                  ul.disc
-                    li
-                      a(href='http://koajs.com/') Koa 2 Node.js framework
-                      br
-                      | The Node.js framework this site runs on.
-                    li
-                      a(href='https://reactjs.org/') React UI framework
-                      |  with support for&#32;
-                      a(href='https://reactjs.org/docs/introducing-jsx.html') JSX
-                    li
-                      a(href='http://coffeescript.org/') CoffeeScript
-                      br
-                      | The JavaScript shorthand this site template uses.
-                    li
-                      | Integrated tests with&#32;
-                      a(href='https://mochajs.org/') Mocha
-                      |  and&#32;
-                      a(href='https://github.com/visionmedia/supertest') Supertest
-                    li
-                      | continuous, incremental builds with&#32;
-                      a(href='https://gulpjs.com/') Gulp
-                      |  and&#32;
-                      a(href='https://webpack.js.org/') Webpack
-                    li
-                      a(href='https://pugjs.org') Pug
-                      br
-                      | Simplified, indentation based template system.
-                    li
-                      a(href='http://stylus-lang.com/') Stylus
-                      br
-                      | Powerful, indentation based CSS preprocessor.
-                      ul
-                        li
-                          a(href='http://kouto-swiss.io/') kouto-swiss Stylus framework
-                        li
-                          a(href='https://jeet.gs/') Jeet Stylus grid system
-                    li
-                      a(href='https://fontawesome.com/') Font Awesome icon font
+                  section
+                    h1 Other Resources
+                    p.
+                      For more information on how to use this site template, see the
+                      following:
+
+                    ul.disc
+                      li
+                        a(href='http://koajs.com/') Koa 2 Node.js framework
+                        br
+                        | The Node.js framework this site runs on.
+                      li
+                        a(href='https://reactjs.org/') React UI framework
+                        |  with support for&#32;
+                        a(href='https://reactjs.org/docs/introducing-jsx.html') JSX
+                      li
+                        a(href='http://coffeescript.org/') CoffeeScript
+                        br
+                        | The JavaScript shorthand this site template uses.
+                      li
+                        | Integrated tests with&#32;
+                        a(href='https://mochajs.org/') Mocha
+                        |  and&#32;
+                        a(href='https://github.com/visionmedia/supertest') Supertest
+                      li
+                        | continuous, incremental builds with&#32;
+                        a(href='https://gulpjs.com/') Gulp
+                        |  and&#32;
+                        a(href='https://webpack.js.org/') Webpack
+                      li
+                        a(href='https://pugjs.org') Pug
+                        br
+                        | Simplified, indentation based template system.
+                      li
+                        a(href='http://stylus-lang.com/') Stylus
+                        br
+                        | Powerful, indentation based CSS preprocessor.
+                        ul
+                          li
+                            a(href='http://kouto-swiss.io/') kouto-swiss Stylus framework
+                          li
+                            a(href='https://jeet.gs/') Jeet Stylus grid system
+                      li
+                        a(href='https://fontawesome.com/') Font Awesome icon font
 
       block bottom-bar
         #bottom-bar
