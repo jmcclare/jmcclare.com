@@ -106,7 +106,7 @@ class NumField extends React.Component
       )
     }
     return (
-      <p>
+      <div className="field-area">
         <div className="input-line">
           <label htmlFor={this.props.varName}>{this.props.label}:</label>
           <span> </span>
@@ -117,7 +117,7 @@ class NumField extends React.Component
           />
         </div>
         {err}
-      </p>
+      </div>
     )
   }
 }

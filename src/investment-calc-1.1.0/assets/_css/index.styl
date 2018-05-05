@@ -1,18 +1,23 @@
 .vars-form
   width 27em
+  overflow auto
   //float right
   //margin-left 2em
-  .input-line
-    clearfix()
-    input
-      //margin-left 2em
-      float right
-      margin-top -0.5em
-  .error
-    color red
-    text-align right
-    margin-top 0.1em
-    font-size 90%
+  .field-area
+    margin 1em 0
+    .input-line
+      clearfix()
+      label
+        font-weight bold
+      input
+        //margin-left 2em
+        float right
+        margin-top -0.5em
+    .error
+      color red
+      text-align right
+      margin-top 0.1em
+      font-size 90%
 .financial-results, .financial-results table, thead, tbody, tfoot, tr
   width 100%
 .financial-results

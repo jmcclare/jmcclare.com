@@ -914,17 +914,24 @@ footer .social-media .icons {
 }
 .vars-form {
   width: 27em;
+  overflow: auto;
 }
-.vars-form .input-line::after {
+.vars-form .field-area {
+  margin: 1em 0;
+}
+.vars-form .field-area .input-line::after {
   content: '';
   display: table;
   clear: both;
 }
-.vars-form .input-line input {
+.vars-form .field-area .input-line label {
+  font-weight: bold;
+}
+.vars-form .field-area .input-line input {
   float: right;
   margin-top: -0.5em;
 }
-.vars-form .error {
+.vars-form .field-area .error {
   color: #f00;
   text-align: right;
   margin-top: 0.1em;
@@ -1106,12 +1113,6 @@ header,
   width: 100%;
   box-shadow: 0px 2px 10px #808080;
   border-radius: 10px;
-}
-#investment-calc {
-  overflow: auto;
-}
-#investment-calc label {
-  font-weight: bold;
 }
 @media (max-width: 800px) {
   .regular-width,
