@@ -1,0 +1,104 @@
+{
+  "_from": "fork-awesome",
+  "_id": "fork-awesome@1.0.11",
+  "_inBundle": false,
+  "_integrity": "sha512-qnORYt+zQVLGirdybXTqK6wPlhnl5YcHudBe9PkaP3xuG2GIv5pRz4MvyuLq4Ho+da8eOLpktcOPDBMG53TTEQ==",
+  "_location": "/fork-awesome",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "fork-awesome",
+    "name": "fork-awesome",
+    "escapedName": "fork-awesome",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/fork-awesome/-/fork-awesome-1.0.11.tgz",
+  "_shasum": "f120c94be7e0c77c549013c989ffc5ef02c0bef8",
+  "_spec": "fork-awesome",
+  "_where": "/home/jmcclare/work/areas/web/projects/personal-website/app",
+  "author": {
+    "name": "Fork Awesome Community"
+  },
+  "bugs": {
+    "url": "http://github.com/ForkAwesome/Fork-Awesome/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Dave Gandy",
+      "url": "http://twitter.com/davegandy"
+    },
+    {
+      "name": "Brian Talbot",
+      "url": "http://twitter.com/talbs"
+    },
+    {
+      "name": "Travis Chase",
+      "url": "http://twitter.com/supercodepoet"
+    },
+    {
+      "name": "Rob Madole",
+      "url": "http://twitter.com/robmadole"
+    },
+    {
+      "name": "Geremia Taglialatela",
+      "url": "http://twitter.com/gtagliala"
+    },
+    {
+      "name": "Julien Deswaef",
+      "url": "https://mastodon.social/@xuv"
+    },
+    {
+      "name": "Micah Ilbery",
+      "url": "https://mastodon.social/@micahilbery"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A fork of the iconic font and CSS framework",
+  "devDependencies": {
+    "less": "^2.7.2",
+    "less-plugin-clean-css": "^1.5.1",
+    "svgo": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=0.10.3"
+  },
+  "homepage": "https://forkawesome.github.io/Fork-Awesome",
+  "jsdelivr": "css/fork-awesome.min.css",
+  "keywords": [
+    "font",
+    "awesome",
+    "forkawesome",
+    "fontawesome",
+    "icon",
+    "bootstrap"
+  ],
+  "license": "(OFL-1.1 AND MIT)",
+  "main": [
+    "css/fork-awesome.min.css",
+    "fonts/forkawesome-webfont.eot",
+    "fonts/forkawesome-webfont.svg",
+    "fonts/forkawesome-webfont.ttf",
+    "fonts/forkawesome-webfont.woff",
+    "fonts/forkawesome-webfont.woff2"
+  ],
+  "name": "fork-awesome",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ForkAwesome/Fork-Awesome.git"
+  },
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "dev": "bundle exec jekyll -w serve"
+  },
+  "style": "css/fork-awesome.css",
+  "version": "1.0.11"
+}

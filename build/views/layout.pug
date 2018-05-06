@@ -13,10 +13,29 @@ html.no-js(lang="")
 
     block styles
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',  type='text/css')
+
+      //-
+      //- Icon Fonts
+      //-
+      //- Fork Awesome interferes with some of the Font Awesome icons. If you
+      //- want to use both of these on the same site, you will have to use the
+      //- Fork Awesome versions of those icons.
+      //-
+      //- See the sample markup for both types of icons in the footer.
+      //-
+
       //- Icon font Font Awesome: http://fontawesome.com/
+      //-
       //- Change this to the specific fontawesome set you are using. See
       //- public/_css/fontawesome/css for available sets.
-      link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+      //-link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+
+      //- Icon Font Fork Awesome — a fork of Font Awesome: https://forkawesome.github.io
+      //-
+      //- The Fork Awesome set is smaller than fontawesome, but it has a few
+      //- things fontawesome doesn’t have, like the square and alt (favicon)
+      //- versions of the Mastodon icon.
+      link(rel='stylesheet', href='/_css/fork-awesome/css/fork-awesome.min.css',  type='text/css')
 
       link(rel="stylesheet" href="/_css/site.css")
 
@@ -144,15 +163,22 @@ html.no-js(lang="")
                 block social-media
                   section.social-media
                     h1 Follow Us
+
                     //-I have to add the HTML entity code spaces (&#32;) below because my
                     //-text editor removes any trailing space for me when I save the
                     //-file.
-                    p.icons
+
+                    //-uncomment this for this fontawesome icons. Also uncomment the
+                    //-fontawesome CSS link in the head.
+                    //-p.icons
                       a(href='#', title='Koa Template on Facebook')
                         span.fab.fa-facebook-square
                       | &#32;
                       a(href='#', title='Koa Template on YouTube')
                         span.fab.fa-youtube-square
+                      | &#32;
+                      a(href='#', title='Koa Template on Mastodon')
+                        span.fab.fa-mastodon
                       | &#32;
                       a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
                         span.fab.fa-twitter-square
@@ -162,6 +188,29 @@ html.no-js(lang="")
                       | &#32;
                       a(href='#', title='Koa Template on tumblr')
                         span.fab.fa-tumblr-square
+
+                    //-The Fork Awesome set is smaller than fontawesome, but it has a
+                    //-few things fontawesome doesn’t have—like the square and alt
+                    //-(favicon) versions of the Mastodon icon.
+                    p.icons
+                      a(href='#', title='Koa Template on Facebook')
+                        span.fa.fa-facebook-square
+                      | &#32;
+                      a(href='#', title='Koa Template on YouTube')
+                        span.fa.fa-youtube-square
+                      | &#32;
+                      a(href='https://mastodon.social/@jmcclare', title='Jonathan MᶜClare on Mastodon')
+                        span.fa.fa-mastodon-square
+                      | &#32;
+                      a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
+                        span.fa.fa-twitter-square
+                      | &#32;
+                      a(href='#', title='Koa Template on Instagram')
+                        span.fa.fa-instagram
+                      | &#32;
+                      a(href='#', title='Koa Template on tumblr')
+                        span.fa.fa-tumblr-square
+
                 block copyright
                   section.copyright
                     - var currentDate = new Date()
