@@ -45,184 +45,189 @@ html.no-js(lang="")
     - if (baseURL) {
     base(href='#{baseURL}')
     - }
-  body
-    block body
-      //
-          [if lt IE 9]>
-          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-          <![endif]
+  | <body class="
+  block body-classes
+    | #{bodyClasses}
+  | ">
+  block body
+    //
+        [if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]
 
-      block body-top
-        //-Github banner for the sample site. You won’t need this on most sites you
-        //-build.
-        //-a(href="https://github.com/jmcclare/koa-template")
-          img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub")
+    block body-top
+      //-Github banner for the sample site. You won’t need this on most sites you
+      //-build.
+      //-a(href="https://github.com/jmcclare/koa-template")
+        img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub")
 
-      block top-bar
-        #top-bar
-          nav
-            ul
-              li
-                a(href=router.url('home')) Home
-              li
-                a(href=router.url('software')) Software
+    block top-bar
+      #top-bar
+        nav
+          ul
+            li
+              a(href=router.url('home')) Home
+            li
+              a(href=router.url('software')) Software
 
-      block flash
-        //-- var infoFlash = req.flash('info').pop();
-        //-- var errorFlash = req.flash('error').pop();
+    block flash
+      //-- var infoFlash = req.flash('info').pop();
+      //-- var errorFlash = req.flash('error').pop();
 
-        - if (infoFlash || errorFlash) {
-        div#flash
+      - if (infoFlash || errorFlash) {
+      div#flash
 
-          - if (infoFlash) {
-          .alert-box
-            != infoFlash
-            a.close(href='') ×
-          - }
-
-          - if (errorFlash) {
-          .alert-box.alert
-            != errorFlash
-            a.close(href='') ×
-          - }
+        - if (infoFlash) {
+        .alert-box
+          != infoFlash
+          a.close(href='') ×
         - }
 
-      block body-main
-        #body-main
-          main
-            block main-header
-              header#main-header
-                #main-header-content
-                  h1 #{title}
-                  - if (subHeading) {
-                    h2.subheading #{subHeading}
-                  - }
-            block main-content
-              #main-content
-                block main-content-content
+        - if (errorFlash) {
+        .alert-box.alert
+          != errorFlash
+          a.close(href='') ×
+        - }
+      - }
 
-          block main-aside
-            aside#main-aside
-              #main-aside-content
-                block main-aside-content
-                  h1 Getting Started
+    block body-main
+      #body-main
+        main
+          block main-header
+            header#main-header
+              #main-header-content
+                h1 #{title}
+                - if (subHeading) {
+                  h2.subheading #{subHeading}
+                - }
+          block main-content
+            #main-content
+              block main-content-content
+
+        block main-aside
+          aside#main-aside
+            #main-aside-content
+              block main-aside-content
+                h1 Getting Started
+                p.
+                  This template includes some basic styles you can modify, play around
+                  with, or totally destroy to get going.
+
+                section
+                  h1 Other Resources
                   p.
-                    This template includes some basic styles you can modify, play around
-                    with, or totally destroy to get going.
+                    For more information on how to use this site template, see the
+                    following:
 
-                  section
-                    h1 Other Resources
-                    p.
-                      For more information on how to use this site template, see the
-                      following:
+                  ul.disc
+                    li
+                      a(href='http://koajs.com/') Koa 2 Node.js framework
+                      br
+                      | The Node.js framework this site runs on.
+                    li
+                      a(href='https://reactjs.org/') React UI framework
+                      |  with support for&#32;
+                      a(href='https://reactjs.org/docs/introducing-jsx.html') JSX
+                    li
+                      a(href='http://coffeescript.org/') CoffeeScript
+                      br
+                      | The JavaScript shorthand this site template uses.
+                    li
+                      | Integrated tests with&#32;
+                      a(href='https://mochajs.org/') Mocha
+                      |  and&#32;
+                      a(href='https://github.com/visionmedia/supertest') Supertest
+                    li
+                      | continuous, incremental builds with&#32;
+                      a(href='https://gulpjs.com/') Gulp
+                      |  and&#32;
+                      a(href='https://webpack.js.org/') Webpack
+                    li
+                      a(href='https://pugjs.org') Pug
+                      br
+                      | Simplified, indentation based template system.
+                    li
+                      a(href='http://stylus-lang.com/') Stylus
+                      br
+                      | Powerful, indentation based CSS preprocessor.
+                      ul
+                        li
+                          a(href='http://kouto-swiss.io/') kouto-swiss Stylus framework
+                        li
+                          a(href='https://jeet.gs/') Jeet Stylus grid system
+                    li
+                      a(href='https://fontawesome.com/') Font Awesome icon font
 
-                    ul.disc
-                      li
-                        a(href='http://koajs.com/') Koa 2 Node.js framework
-                        br
-                        | The Node.js framework this site runs on.
-                      li
-                        a(href='https://reactjs.org/') React UI framework
-                        |  with support for&#32;
-                        a(href='https://reactjs.org/docs/introducing-jsx.html') JSX
-                      li
-                        a(href='http://coffeescript.org/') CoffeeScript
-                        br
-                        | The JavaScript shorthand this site template uses.
-                      li
-                        | Integrated tests with&#32;
-                        a(href='https://mochajs.org/') Mocha
-                        |  and&#32;
-                        a(href='https://github.com/visionmedia/supertest') Supertest
-                      li
-                        | continuous, incremental builds with&#32;
-                        a(href='https://gulpjs.com/') Gulp
-                        |  and&#32;
-                        a(href='https://webpack.js.org/') Webpack
-                      li
-                        a(href='https://pugjs.org') Pug
-                        br
-                        | Simplified, indentation based template system.
-                      li
-                        a(href='http://stylus-lang.com/') Stylus
-                        br
-                        | Powerful, indentation based CSS preprocessor.
-                        ul
-                          li
-                            a(href='http://kouto-swiss.io/') kouto-swiss Stylus framework
-                          li
-                            a(href='https://jeet.gs/') Jeet Stylus grid system
-                      li
-                        a(href='https://fontawesome.com/') Font Awesome icon font
+    block bottom-bar
+      #bottom-bar
+        block footer
+          footer
+            block footer-content
+              block social-media
+                section.social-media
+                  h1 Follow Us
 
-      block bottom-bar
-        #bottom-bar
-          block footer
-            footer
-              block footer-content
-                block social-media
-                  section.social-media
-                    h1 Follow Us
+                  //-I have to add the HTML entity code spaces (&#32;) below because my
+                  //-text editor removes any trailing space for me when I save the
+                  //-file.
 
-                    //-I have to add the HTML entity code spaces (&#32;) below because my
-                    //-text editor removes any trailing space for me when I save the
-                    //-file.
+                  //-uncomment this for this fontawesome icons. Also uncomment the
+                  //-fontawesome CSS link in the head.
+                  //-p.icons
+                    a(href='#', title='Koa Template on Facebook')
+                      span.fab.fa-facebook-square
+                    | &#32;
+                    a(href='#', title='Koa Template on YouTube')
+                      span.fab.fa-youtube-square
+                    | &#32;
+                    a(href='#', title='Koa Template on Mastodon')
+                      span.fab.fa-mastodon
+                    | &#32;
+                    a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
+                      span.fab.fa-twitter-square
+                    | &#32;
+                    a(href='#', title='Koa Template on Instagram')
+                      span.fab.fa-instagram
+                    | &#32;
+                    a(href='#', title='Koa Template on tumblr')
+                      span.fab.fa-tumblr-square
 
-                    //-uncomment this for this fontawesome icons. Also uncomment the
-                    //-fontawesome CSS link in the head.
-                    //-p.icons
-                      a(href='#', title='Koa Template on Facebook')
-                        span.fab.fa-facebook-square
-                      | &#32;
-                      a(href='#', title='Koa Template on YouTube')
-                        span.fab.fa-youtube-square
-                      | &#32;
-                      a(href='#', title='Koa Template on Mastodon')
-                        span.fab.fa-mastodon
-                      | &#32;
-                      a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
-                        span.fab.fa-twitter-square
-                      | &#32;
-                      a(href='#', title='Koa Template on Instagram')
-                        span.fab.fa-instagram
-                      | &#32;
-                      a(href='#', title='Koa Template on tumblr')
-                        span.fab.fa-tumblr-square
+                  //-The Fork Awesome set is smaller than fontawesome, but it has a
+                  //-few things fontawesome doesn’t have—like the square and alt
+                  //-(favicon) versions of the Mastodon icon.
+                  p.icons
+                    a(href='#', title='Koa Template on Facebook')
+                      span.fa.fa-facebook-square
+                    | &#32;
+                    a(href='#', title='Koa Template on YouTube')
+                      span.fa.fa-youtube-square
+                    | &#32;
+                    a(href='https://mastodon.social/@jmcclare', title='Jonathan MᶜClare on Mastodon')
+                      span.fa.fa-mastodon-square
+                    | &#32;
+                    a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
+                      span.fa.fa-twitter-square
+                    | &#32;
+                    a(href='#', title='Koa Template on Instagram')
+                      span.fa.fa-instagram
+                    | &#32;
+                    a(href='#', title='Koa Template on tumblr')
+                      span.fa.fa-tumblr-square
 
-                    //-The Fork Awesome set is smaller than fontawesome, but it has a
-                    //-few things fontawesome doesn’t have—like the square and alt
-                    //-(favicon) versions of the Mastodon icon.
-                    p.icons
-                      a(href='#', title='Koa Template on Facebook')
-                        span.fa.fa-facebook-square
-                      | &#32;
-                      a(href='#', title='Koa Template on YouTube')
-                        span.fa.fa-youtube-square
-                      | &#32;
-                      a(href='https://mastodon.social/@jmcclare', title='Jonathan MᶜClare on Mastodon')
-                        span.fa.fa-mastodon-square
-                      | &#32;
-                      a(href='https://twitter.com/jmcclare', title='Jonathan MᶜClare on Twitter')
-                        span.fa.fa-twitter-square
-                      | &#32;
-                      a(href='#', title='Koa Template on Instagram')
-                        span.fa.fa-instagram
-                      | &#32;
-                      a(href='#', title='Koa Template on tumblr')
-                        span.fa.fa-tumblr-square
-
-                block copyright
-                  section.copyright
-                    - var currentDate = new Date()
-                    - var currentYear = currentDate.getUTCFullYear()
-                    p &copy; Jonathan MᶜClare #{currentYear}
+              block copyright
+                section.copyright
+                  - var currentDate = new Date()
+                  - var currentYear = currentDate.getUTCFullYear()
+                  p &copy; Jonathan MᶜClare #{currentYear}
 
 
-      block post-js
-        //-script(src="/_js/site.js")
+    block post-js
+      //-script(src="/_js/site.js")
 
 
-      block analytics
-        //-Google Analytics: change UA-XXXXX-Y to be your site's ID.
-        //-script  window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date; ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        //-script(src="https://www.google-analytics.com/analytics.js" async defer)
+    block analytics
+      //-Google Analytics: change UA-XXXXX-Y to be your site's ID.
+      //-script  window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date; ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+      //-script(src="https://www.google-analytics.com/analytics.js" async defer)
+
+  | </body>

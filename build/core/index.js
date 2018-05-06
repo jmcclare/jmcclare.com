@@ -169,6 +169,14 @@ app.use((0, _koaStatic2.default)(_path2.default.join(__dirname, '../public')));
 //#throw new Error 'Fake Error'
 //ctx.throw 500, 'Fake Error'
 
+// An example of adding a variable that will show up in the template context for
+// everything under this router. bodyClasses will also show up in the template
+// contexts for every router nested under topRouter.
+topRouter.use(function (ctx, next) {
+  ctx.state.bodyClasses = '';
+  return next();
+});
+
 topRouter.get('home', '/', function (ctx, next) {
   var locals;
   locals = {
@@ -179,6 +187,11 @@ topRouter.get('home', '/', function (ctx, next) {
 });
 
 softRouter = new _koaRouter2.default();
+
+topRouter.use(function (ctx, next) {
+  ctx.state.bodyClasses = 'software';
+  return next();
+});
 
 softRouter.get('software', '/', function (ctx, next) {
   var locals;

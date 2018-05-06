@@ -119,6 +119,13 @@ app.use serve path.join __dirname, '../public'
   #
 
 
+# An example of adding a variable that will show up in the template context for
+# everything under this router. bodyClasses will also show up in the template
+# contexts for every router nested under topRouter.
+topRouter.use (ctx, next) =>
+  ctx.state.bodyClasses = ''
+  return next()
+
 topRouter.get 'home', '/', (ctx, next) =>
   locals =
     title: 'Jonathan MᶜClare'
@@ -127,6 +134,10 @@ topRouter.get 'home', '/', (ctx, next) =>
 
 
 softRouter = new Router()
+
+topRouter.use (ctx, next) =>
+  ctx.state.bodyClasses = 'software'
+  return next()
 
 softRouter.get 'software', '/', (ctx, next) =>
   locals =
