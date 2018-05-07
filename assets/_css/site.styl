@@ -20,6 +20,9 @@
 // Fonts and Colors
 //
 
+on-dark-link-color = white
+on-dark-link-hover-color = #ccc
+
 //body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl
   //font-family 'Inconsolata', monospace, serif
 
@@ -55,11 +58,11 @@ blockquote
     //color #444
     color white
   a
-    color white
+    color on-dark-link-color
     text-decoration none
     font-weight bold
     &:hover
-      color #ccc
+      color on-dark-link-hover-color
 
 // Red top and bottom bar, drop shadows
 //#top-bar nav, #body-main, #bottom-bar footer
@@ -82,6 +85,15 @@ blockquote
 #main-header
   h1
     font-size 5em
+
+.social-media, #main-aside .social-media
+  .icons
+    text-align: justify
+    font-size modular-scale(6)
+    a *
+      color on-dark-link-color
+      &:hover
+        color on-dark-link-hover-color
 
 #bottom-bar
   .copyright

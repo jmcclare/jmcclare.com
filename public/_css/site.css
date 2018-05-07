@@ -1008,6 +1008,19 @@ header,
 #main-header h1 {
   font-size: 5em;
 }
+.social-media .icons,
+#main-aside .social-media .icons {
+  text-align: justify;
+  font-size: 3.73719em;
+}
+.social-media .icons a *,
+#main-aside .social-media .icons a * {
+  color: #fff;
+}
+.social-media .icons a *:hover,
+#main-aside .social-media .icons a *:hover {
+  color: #ccc;
+}
 #bottom-bar .copyright * {
   color: #ccc;
 }
