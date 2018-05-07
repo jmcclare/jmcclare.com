@@ -87,9 +87,11 @@ blockquote
     font-size 5em
 
 .social-media, #main-aside .social-media
+  overflow hidden
   .icons
     text-align: justify
     font-size modular-scale(6)
+    margin .1em 0
     a *
       color on-dark-link-color
       &:hover
@@ -141,6 +143,17 @@ blockquote
 //
 // Specific page styles
 //
+
+
+// Home Page
+
+body.home
+  #body-main
+    background black
+    #main-header
+      padding-bottom 0
+    #main-aside
+      //margin-top 0
 
 
 // Software Development

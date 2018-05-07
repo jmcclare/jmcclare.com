@@ -129,7 +129,7 @@ topRouter.use (ctx, next) =>
 topRouter.get 'home', '/', (ctx, next) =>
   locals =
     title: 'Jonathan MᶜClare'
-    #subHeading: 'A template for a Node.js Koa site'
+    subHeading: 'A hub for what I’m up to online'
   ctx.render 'home', locals, true
 
 

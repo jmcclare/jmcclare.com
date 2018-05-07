@@ -180,9 +180,9 @@ topRouter.use(function (ctx, next) {
 topRouter.get('home', '/', function (ctx, next) {
   var locals;
   locals = {
-    title: 'Jonathan MᶜClare'
+    title: 'Jonathan MᶜClare',
+    subHeading: 'A hub for what I’m up to online'
   };
-  //subHeading: 'A template for a Node.js Koa site'
   return ctx.render('home', locals, true);
 });
 
