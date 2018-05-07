@@ -23,27 +23,13 @@
 on-dark-link-color = white
 on-dark-link-hover-color = #ccc
 
-//body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl
-  //font-family 'Inconsolata', monospace, serif
-
 body
   color #4a4a4a
   background-color #ffffff
 
-  // gradient background
-  //background-image url('/_img/background-gradient.png')
-  //background-size 100%
-  //background-repeat repeat-y
-
 h1, h2, h3, h4, h5, h6
   color black
   margin modular-scale(-1) 0 modular-scale(-3) 0
-
-//h1, h2, h3, h4, h5, h6, strong
-  //color #f8ce63
-
-//a
-  //color #cb9d3c
 
 blockquote
   color #666
@@ -63,11 +49,6 @@ blockquote
     font-weight bold
     &:hover
       color on-dark-link-hover-color
-
-// Red top and bottom bar, drop shadows
-//#top-bar nav, #body-main, #bottom-bar footer
-    //background-color #c02
-    //box-shadow 0px 2px 10px grey
 
 #body-main
   background white
@@ -180,6 +161,17 @@ body.home
 //
 
 
+// Between medium and large
+@media only screen and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+  body, p, li, dd, dt
+    //font-size ms(0) - round(ms(0) / 10)
+    //font-size .9em
+
+  .software-content
+    .project
+      stack()
+
+
 // medium width layout
 @media (max-width: screen-medium)
   .regular-width, .centred, main, aside
@@ -196,15 +188,33 @@ body.home
 /* Small (mobile) display targeting */
 /* Lower the font sizes for small displays */
 @media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
+  body, p, li, dd, dt
+    //font-size ms(0) - round(ms(0) / 10)
+    //font-size .8em
+
   .regular-width, #top-bar nav, #bottom-bar footer
     padding-left 0
     padding-right 0
 
+  #main-header
+    h1
+      font-size 3.5em
+    .subheading
+      font-size modular-scale(0)
+
+  .software-content
+    .project
+      .feature-image, .details
+        stack()
+
 
 // mobile width layout
-@media (max-width: screen-small)
-  .priced-item
-    stack()
+@media only screen and (max-width: screen-small)
+  #main-header
+    h1
+      font-size 2.5em
+    .subheading
+      font-size modular-scale(-1)
 
 
 /* Medium size / tablet display targeting */

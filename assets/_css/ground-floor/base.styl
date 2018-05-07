@@ -6,7 +6,8 @@ normalize()
 //
 
 // Use our preferred humanist fonts
-body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl
+//body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl
+body
   font-family "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif
   font-size ms(0)
 
@@ -244,9 +245,15 @@ footer
 
 
 /* Medium size / tablet display targeting */
-@media only screen and (min-width: screen-small + round((screen-medium - screen-small) / 2) + 1) and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
-  p, ul, ol, li,  dl, dt, dd, blockquote, pre, table
-    font-size ms(0) - round(ms(0) / 10)
+//@media only screen and (min-width: screen-small + round((screen-medium - screen-small) / 2) + 1) and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+@media only screen and (max-width: screen-medium + round((screen-large - screen-medium) / 2))
+  body
+    if unit(base-font-size) == 'em'
+      round-precision = 10
+    else
+      round-precision = 0
+    font-size round( ms(0) - unit(ms(0) / 10, unit(base-font-size)), round-precision )
+
 
 
 /* small (mobile) size and larger */
@@ -261,8 +268,12 @@ footer
 /* Small (mobile) display targeting */
 /* Lower the font sizes for small displays */
 @media only screen and (max-width: screen-small + round((screen-medium - screen-small) / 2))
-  p, ul, ol, li,  dl, dt, dd, blockquote, pre, table
-    font-size ms(0) - 2 * round(ms(0) / 10)
+  body
+    if unit(base-font-size) == 'em'
+      round-precision = 10
+    else
+      round-precision = 0
+    font-size round( ms(0) - 2 * unit(ms(0) / 10, unit(base-font-size)), round-precision )
 
 
   //
