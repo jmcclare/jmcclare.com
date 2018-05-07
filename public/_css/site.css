@@ -1107,6 +1107,8 @@ body.home #body-main #main-header {
 }
 .software-content .project .feature-image img {
   width: 100%;
+  box-shadow: 0px 2px 10px #808080;
+  border-radius: 10px;
 }
 @media only screen and (max-width: 1040px) {
   .software-content .project {
