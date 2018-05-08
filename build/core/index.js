@@ -196,9 +196,9 @@ topRouter.use(function (ctx, next) {
 softRouter.get('software', '/', function (ctx, next) {
   var locals;
   locals = {
-    title: 'Software Development'
+    title: 'Software Development',
+    subHeading: 'Some projects I’m able to share'
   };
-  //subHeading: 'A React app that simulates investment growth and returns over time.'
   return ctx.render('software/main', locals, true);
 });
 

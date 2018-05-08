@@ -142,7 +142,7 @@ topRouter.use (ctx, next) =>
 softRouter.get 'software', '/', (ctx, next) =>
   locals =
     title: 'Software Development'
-    #subHeading: 'A React app that simulates investment growth and returns over time.'
+    subHeading: 'Some projects I’m able to share'
   ctx.render 'software/main', locals, true
 
 softRouter.get 'software-icalc', '/investment-calc', (ctx, next) =>
