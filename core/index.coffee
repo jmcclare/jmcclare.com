@@ -1,24 +1,34 @@
 import debugMod from 'debug'
 debug = debugMod 'core'
 import Koa from 'koa'
+app = new Koa()
 import Router from 'koa-router'
 import Pug from 'koa-pug'
 import path from 'path'
 import error from 'koa-error'
-
 import stylus from 'stylus'
 import kStylus from 'koa-stylus'
 import kswiss from 'kouto-swiss'
 import jeet from 'jeet'
 import serve from 'koa-static'
 import webpack from 'koa-webpack'
+
+import CacheBuster from 'cache-buster'
+
 import webpackConfig from './webpack.config'
 import { inProd } from './utils'
 import loggerSetup from './logger'
 
 
-app = new Koa()
-topRouter = new Router()
+staticDir = path.join __dirname, '../public'
+cacheBuster = new CacheBuster staticDir
+viewPath = path.join __dirname, '../views'
+defaultLocals =
+  title: 'Koa Template'
+  # Adding this to ctx.state in a middleware causes sporadic, yet harmless
+  # errors during starting where Pug says cburl is not a function. Adding it
+  # here doesn’t seem to cause any problems.
+  cburl: cacheBuster.url
 
 
 if inProd
@@ -37,23 +47,6 @@ app.use error
   env: errorEnv
 
 
-# Basic error handler that logs any errors to console.
-# This must be 'used' before any middleware that may throw errors to ensure it
-# catches them.
-#app.use (ctx, next) =>
-  #try
-    #await next()
-  #catch err
-    #console.log err
-    #ctx.body = 'caught an error'
-
-#app.use (ctx, next) =>
-  #try
-    #await next()
-  #catch err
-    #console.log err
-    #ctx.body = 'caught an error'
-
 loggerOpts = {}
 if inProd
   loggerOpts.logReq = true
@@ -64,11 +57,6 @@ logger = loggerSetup loggerOpts
 app.use logger
 
 
-viewPath = path.join __dirname, '../views'
-global_locals_for_all_pages =
-  title: 'Koa Template'
-  router: topRouter
-
 pug = new Pug
   viewPath: viewPath,
   basedir: viewPath,
@@ -76,12 +64,7 @@ pug = new Pug
   debug: process.env.NODE_ENV == 'development',
   pretty: process.env.NODE_ENV == 'development',
   compileDebug: process.env.NODE_ENV == 'development',
-  locals: global_locals_for_all_pages,
-  #helperPath: [
-    #'path/to/pug/helpers',
-    #{ random: 'path/to/lib/random.js' },
-    #{ _: require('lodash') }
-  #],
+  locals: defaultLocals,
   app: app # equals to pug.use(app) and app.use(pug.middleware)
 
 
@@ -108,22 +91,19 @@ if ! inProd
 if ! inProd
   app.use webpack config: webpackConfig 'development'
 
-app.use serve path.join __dirname, '../public'
+app.use serve staticDir
 
 
-# Test middleware that does nothing but throw an error.
-# This has no effect if it’s used after any routes are used.
-#app.use (ctx, next) =>
-  ##throw new Error 'Fake Error'
-  #ctx.throw 500, 'Fake Error'
-  #
-
+topRouter = new Router()
 
 # An example of adding a variable that will show up in the template context for
 # everything under this router. bodyClasses will also show up in the template
 # contexts for every router nested under topRouter.
 topRouter.use (ctx, next) =>
   ctx.state.bodyClasses = ''
+  # Adding this here doesn’t seem to cause any problems. If it does, add it to
+  # defaultLocals at the top like we do with cburl.
+  ctx.state.router = topRouter
   return next()
 
 topRouter.get 'home', '/', (ctx, next) =>
@@ -132,10 +112,9 @@ topRouter.get 'home', '/', (ctx, next) =>
     subHeading: 'A hub for what I’m up to online'
   ctx.render 'home', locals, true
 
-
 softRouter = new Router()
 
-topRouter.use (ctx, next) =>
+softRouter.use (ctx, next) =>
   ctx.state.bodyClasses = 'software'
   return next()
 
@@ -176,14 +155,6 @@ app.use (ctx, next) =>
 
   # default to plain text
   ctx.body = 'Not Found'
-
-
-# A makeshift error event handler middleware.
-# This can be defined anywhere after the app object is created.
-#app.on 'error', (err, ctx) =>
-  ##log.error('server error', err, ctx)
-  #console.log 'stuff'
-  #console.log err
 
 
 export default app

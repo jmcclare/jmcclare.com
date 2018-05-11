@@ -9,7 +9,7 @@ html.no-js(lang="")
     meta(name='author', content='#{author}')
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
 
-    link(rel="apple-touch-icon" href="apple-touch-icon.png")
+    //-link(rel="apple-touch-icon" href="apple-touch-icon.png")
 
     block styles
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',  type='text/css')
@@ -35,12 +35,12 @@ html.no-js(lang="")
       //- The Fork Awesome set is smaller than fontawesome, but it has a few
       //- things fontawesome doesn’t have, like the square and alt (favicon)
       //- versions of the Mastodon icon.
-      link(rel='stylesheet', href='/_css/fork-awesome/css/fork-awesome.min.css',  type='text/css')
+      link(rel='stylesheet' href=cburl('/_css/fork-awesome/css/fork-awesome.min.css') type='text/css')
 
-      link(rel="stylesheet" href="/_css/site.css")
+      link(rel='stylesheet' href=cburl('/_css/site.css') type='text/css')
 
     block head-js
-      script(src="/_js/lib/modernizr-2.8.3.min.js")
+      script(src=cburl('/_js/lib/modernizr-2.8.3.min.js'))
 
     - if (baseURL) {
     base(href='#{baseURL}')
@@ -133,7 +133,7 @@ html.no-js(lang="")
 
 
     block post-js
-      //-script(src="/_js/site.js")
+      //-script(src=cburl('/_js/site.js'))
 
 
     block analytics

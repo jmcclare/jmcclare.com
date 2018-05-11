@@ -52,6 +52,10 @@ var _koaWebpack = require('koa-webpack');
 
 var _koaWebpack2 = _interopRequireDefault(_koaWebpack);
 
+var _cacheBuster = require('cache-buster');
+
+var _cacheBuster2 = _interopRequireDefault(_cacheBuster);
+
 var _webpack = require('./webpack.config');
 
 var _webpack2 = _interopRequireDefault(_webpack);
@@ -66,13 +70,25 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var app, debug, errorEnv, global_locals_for_all_pages, logger, loggerOpts, pug, softRouter, stylusCompile, topRouter, viewPath;
+var app, cacheBuster, debug, defaultLocals, errorEnv, logger, loggerOpts, pug, softRouter, staticDir, stylusCompile, topRouter, viewPath;
 
 debug = (0, _debug2.default)('core');
 
 app = new _koa2.default();
 
-topRouter = new _koaRouter2.default();
+staticDir = _path2.default.join(__dirname, '../public');
+
+cacheBuster = new _cacheBuster2.default(staticDir);
+
+viewPath = _path2.default.join(__dirname, '../views');
+
+defaultLocals = {
+  title: 'Koa Template',
+  // Adding this to ctx.state in a middleware causes sporadic, yet harmless
+  // errors during starting where Pug says cburl is not a function. Adding it
+  // here doesn’t seem to cause any problems.
+  cburl: cacheBuster.url
+};
 
 if (_utils.inProd) {
   // This tells the default error handler to not log any thrown middleware error
@@ -92,22 +108,6 @@ app.use((0, _koaError2.default)({
   env: errorEnv
 }));
 
-// Basic error handler that logs any errors to console.
-// This must be 'used' before any middleware that may throw errors to ensure it
-// catches them.
-//app.use (ctx, next) =>
-//try
-//await next()
-//catch err
-//console.log err
-//ctx.body = 'caught an error'
-
-//app.use (ctx, next) =>
-//try
-//await next()
-//catch err
-//console.log err
-//ctx.body = 'caught an error'
 loggerOpts = {};
 
 if (_utils.inProd) {
@@ -121,13 +121,6 @@ logger = (0, _logger2.default)(loggerOpts);
 
 app.use(logger);
 
-viewPath = _path2.default.join(__dirname, '../views');
-
-global_locals_for_all_pages = {
-  title: 'Koa Template',
-  router: topRouter
-};
-
 pug = new _koaPug2.default({
   viewPath: viewPath,
   basedir: viewPath,
@@ -135,12 +128,7 @@ pug = new _koaPug2.default({
   debug: process.env.NODE_ENV === 'development',
   pretty: process.env.NODE_ENV === 'development',
   compileDebug: process.env.NODE_ENV === 'development',
-  locals: global_locals_for_all_pages,
-  //helperPath: [
-  //'path/to/pug/helpers',
-  //{ random: 'path/to/lib/random.js' },
-  //{ _: require('lodash') }
-  //],
+  locals: defaultLocals,
   app: app // equals to pug.use(app) and app.use(pug.middleware)
 });
 
@@ -161,19 +149,18 @@ if (!_utils.inProd) {
   }));
 }
 
-app.use((0, _koaStatic2.default)(_path2.default.join(__dirname, '../public')));
+app.use((0, _koaStatic2.default)(staticDir));
 
-// Test middleware that does nothing but throw an error.
-// This has no effect if it’s used after any routes are used.
-//app.use (ctx, next) =>
-//#throw new Error 'Fake Error'
-//ctx.throw 500, 'Fake Error'
+topRouter = new _koaRouter2.default();
 
 // An example of adding a variable that will show up in the template context for
 // everything under this router. bodyClasses will also show up in the template
 // contexts for every router nested under topRouter.
 topRouter.use(function (ctx, next) {
   ctx.state.bodyClasses = '';
+  // Adding this here doesn’t seem to cause any problems. If it does, add it to
+  // defaultLocals at the top like we do with cburl.
+  ctx.state.router = topRouter;
   return next();
 });
 
@@ -188,7 +175,7 @@ topRouter.get('home', '/', function (ctx, next) {
 
 softRouter = new _koaRouter2.default();
 
-topRouter.use(function (ctx, next) {
+softRouter.use(function (ctx, next) {
   ctx.state.bodyClasses = 'software';
   return next();
 });
@@ -237,10 +224,4 @@ app.use(async function (ctx, next) {
   return ctx.body = 'Not Found';
 });
 
-// A makeshift error event handler middleware.
-// This can be defined anywhere after the app object is created.
-//app.on 'error', (err, ctx) =>
-//#log.error('server error', err, ctx)
-//console.log 'stuff'
-//console.log err
 exports.default = app;
