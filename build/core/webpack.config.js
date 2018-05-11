@@ -86,7 +86,7 @@ webpackConfig = function webpackConfig(mode) {
             presets: ['es2015']
           }
         },
-        include: [_path2.default.resolve(appRoot, 'assets', '_js'), _path2.default.resolve(appRoot, 'site_modules')]
+        include: [_path2.default.resolve(appRoot, 'assets', '_js'), _path2.default.resolve(appRoot, 'site_modules'), _path2.default.resolve(appRoot, 'src')]
       }]
     },
     mode: mode
