@@ -143,6 +143,7 @@ build = gulp.series(
     siteModCoffee,
     testCoffee,
     syncViews,
+    syncNodeModules,
     gulp.series(
       syncPublic,
       gulp.parallel(
