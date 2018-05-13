@@ -11,7 +11,7 @@
     "start": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=development nodemon -e coffee,styl,pug,json --ignore ./build --ignore ./public --exec 'coffee --transpile ./'",
     "dev": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=development nodemon -e coffee,js,jsx,styl,pug,json --ignore ./build --exec '(sleep 10 && gulp) & coffee --transpile ./'",
     "test": "NODE_PATH=lib:site_modules:$NODE_PATH NODE_ENV=test nodemon -e coffee,jsx,styl,pug,json --exec 'mocha --check-leaks --reporter nyan dev-test'",
-    "build": "gulp",
+    "build": "gulp clean; gulp",
     "clean": "gulp clean",
     "cont-build": "nodemon -e coffee,styl,pug,js,jsx,css,json,jpg,jpeg,png,ico --ignore ./build --exec 'sleep 3 && gulp'",
     "start-prod": "NODE_PATH=build/lib:build/site_modules:$NODE_PATH node ./build",
