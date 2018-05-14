@@ -12,6 +12,7 @@ import gulpWebpack from 'webpack-stream'
 import webpack     from 'webpack'
 import wpcfg       from './core/webpack.config'
 import path        from 'path'
+import fs          from 'fs'
 
 
 clean = ->
@@ -135,6 +136,33 @@ syncNodeModules = ->
   syncFiles './node_modules/', './build/node_modules'
 
 
+# Go through a list of possible doc files and sync any that exist to the build
+# dir.
+syncProjectDocs = ->
+  return new Promise (resolve, reject) ->
+    docFiles = [
+      'README.md'
+      'README'
+      'RELEASES.md'
+      'RELEASES'
+      'CHANGELOG.md'
+      'CHANGELOG'
+    ]
+
+    for docFile in docFiles
+      do (docFile) ->
+        doSync = true
+        try
+          fs.statSync path.join __dirname, docFile
+        catch err
+          if err.code != 'ENOENT'
+            return console.log err
+          doSync = false
+        if doSync
+          return syncFiles docFile, './build/' + docFile
+    resolve()
+
+
 build = gulp.series(
   buildDir,
   gulp.parallel(
@@ -144,6 +172,7 @@ build = gulp.series(
     testCoffee,
     syncViews,
     syncNodeModules,
+    syncProjectDocs,
     gulp.series(
       syncPublic,
       gulp.parallel(
