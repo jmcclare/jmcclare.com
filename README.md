@@ -17,5 +17,5 @@ site has been tested with.
 * node: v10.0.0
 * npm: 5.6.0
 * npx: 9.7.1
-* CoffeeScript version 2.2.2
+* coffee: CoffeeScript version 2.2.2
 * js2coffee: 2.2.0
