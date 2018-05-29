@@ -83,13 +83,13 @@ cacheBuster = new _cacheBuster2.default(staticDir);
 viewPath = _path2.default.join(__dirname, '../views');
 
 defaultLocals = {
-  title: 'Koa Template',
-  // Adding this to ctx.state in a middleware causes sporadic, yet harmless
-  // errors during starting where Pug says cburl is not a function. Adding it
-  // here doesn’t seem to cause any problems.
-  cburl: cacheBuster.url
+  title: 'Koa Template'
 };
 
+// Adding this to ctx.state in a middleware causes sporadic, yet harmless
+// errors during starting where Pug says cburl is not a function. Adding it
+// here doesn’t seem to cause any problems.
+//cburl: cacheBuster.url
 if (_utils.inProd) {
   // This tells the default error handler to not log any thrown middleware error
   // to the console. It has no effect if your own middleware handles all errors.
@@ -153,6 +153,17 @@ app.use((0, _koaStatic2.default)(staticDir));
 
 topRouter = new _koaRouter2.default();
 
+app.use(async function (ctx, next) {
+  //ctx.state.bodyClasses = 'regular special'
+  // Adding these here doesn’t seem to cause any problems. If it does, add them
+  // to defaultLocals at the top. Adding them to a router middleware can cause
+  // startup errors where they are still undefined when the templates are
+  // loaded.
+  ctx.state.cburl = cacheBuster.url;
+  ctx.state.router = topRouter;
+  return await next();
+});
+
 // An example of adding a variable that will show up in the template context for
 // everything under this router. bodyClasses will also show up in the template
 // contexts for every router nested under topRouter.
@@ -168,7 +179,8 @@ topRouter.get('home', '/', function (ctx, next) {
   var locals;
   locals = {
     title: 'Jonathan MᶜClare',
-    subHeading: 'A hub for what I’m up to online'
+    subHeading: 'A hub for what I’m up to online',
+    section: 'site-root'
   };
   return ctx.render('home', locals, true);
 });

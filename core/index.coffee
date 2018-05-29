@@ -28,7 +28,7 @@ defaultLocals =
   # Adding this to ctx.state in a middleware causes sporadic, yet harmless
   # errors during starting where Pug says cburl is not a function. Adding it
   # here doesn’t seem to cause any problems.
-  cburl: cacheBuster.url
+  #cburl: cacheBuster.url
 
 
 if inProd
@@ -96,6 +96,18 @@ app.use serve staticDir
 
 topRouter = new Router()
 
+
+app.use (ctx, next) =>
+  #ctx.state.bodyClasses = 'regular special'
+  # Adding these here doesn’t seem to cause any problems. If it does, add them
+  # to defaultLocals at the top. Adding them to a router middleware can cause
+  # startup errors where they are still undefined when the templates are
+  # loaded.
+  ctx.state.cburl = cacheBuster.url
+  ctx.state.router = topRouter
+  await next()
+
+
 # An example of adding a variable that will show up in the template context for
 # everything under this router. bodyClasses will also show up in the template
 # contexts for every router nested under topRouter.
@@ -110,6 +122,7 @@ topRouter.get 'home', '/', (ctx, next) =>
   locals =
     title: 'Jonathan MᶜClare'
     subHeading: 'A hub for what I’m up to online'
+    section: 'site-root'
   ctx.render 'home', locals, true
 
 softRouter = new Router()
