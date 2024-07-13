@@ -201,7 +201,7 @@ softRouter.get('software', '/', function (ctx, next) {
   return ctx.render('software/main', locals, true);
 });
 
-softRouter.get('software-icalc', '/investment-calc', function (ctx, next) {
+softRouter.get('software-icalc', '/investment-calc/', function (ctx, next) {
   var locals;
   locals = {
     title: 'Investment Calculator',

@@ -137,7 +137,7 @@ softRouter.get 'software', '/', (ctx, next) =>
     subHeading: 'Some projects I’m able to share'
   ctx.render 'software/main', locals, true
 
-softRouter.get 'software-icalc', '/investment-calc', (ctx, next) =>
+softRouter.get 'software-icalc', '/investment-calc/', (ctx, next) =>
   locals =
     title: 'Investment Calculator'
     subHeading: 'A React app that simulates investment growth and returns over time.'
