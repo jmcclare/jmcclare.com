@@ -9,6 +9,10 @@ html.no-js(lang="")
     meta(name='author', content='#{author}')
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
 
+    //- Browsers will usually look for /favicon.ico on their own, but
+    //- explicitly linking it here causes the wget command in our export-static
+    //- command to mirror it for us.
+    link(rel="icon" href="/favicon.ico")
     //-link(rel="apple-touch-icon" href="apple-touch-icon.png")
 
     block styles
