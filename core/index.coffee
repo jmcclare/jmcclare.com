@@ -122,6 +122,7 @@ topRouter.get 'home', '/', (ctx, next) =>
   locals =
     title: 'Jonathan MᶜClare'
     subHeading: 'A hub for what I’m up to online'
+    description: 'A hub for what I’m up to online'
     section: 'site-root'
   ctx.render 'home', locals, true
 
@@ -135,12 +136,14 @@ softRouter.get 'software', '/', (ctx, next) =>
   locals =
     title: 'Software Development'
     subHeading: 'Some projects I’m able to share'
+    description: 'Some projects I’m able to share'
   ctx.render 'software/main', locals, true
 
 softRouter.get 'software-icalc', '/investment-calc/', (ctx, next) =>
   locals =
     title: 'Investment Calculator'
     subHeading: 'A React app that simulates investment growth and returns over time.'
+    description: 'A React app that simulates investment growth and returns over time.'
   ctx.render 'software/icalc', locals, true
 
 topRouter.use '/software', softRouter.routes(), softRouter.allowedMethods()

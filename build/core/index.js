@@ -180,6 +180,7 @@ topRouter.get('home', '/', function (ctx, next) {
   locals = {
     title: 'Jonathan MᶜClare',
     subHeading: 'A hub for what I’m up to online',
+    description: 'A hub for what I’m up to online',
     section: 'site-root'
   };
   return ctx.render('home', locals, true);
@@ -196,7 +197,8 @@ softRouter.get('software', '/', function (ctx, next) {
   var locals;
   locals = {
     title: 'Software Development',
-    subHeading: 'Some projects I’m able to share'
+    subHeading: 'Some projects I’m able to share',
+    description: 'Some projects I’m able to share'
   };
   return ctx.render('software/main', locals, true);
 });
@@ -205,7 +207,8 @@ softRouter.get('software-icalc', '/investment-calc/', function (ctx, next) {
   var locals;
   locals = {
     title: 'Investment Calculator',
-    subHeading: 'A React app that simulates investment growth and returns over time.'
+    subHeading: 'A React app that simulates investment growth and returns over time.',
+    description: 'A React app that simulates investment growth and returns over time.'
   };
   return ctx.render('software/icalc', locals, true);
 });
