@@ -36,14 +36,15 @@ html.no-js(lang="")
       //-
       //- Change this to the specific fontawesome set you are using. See
       //- public/_css/fontawesome/css for available sets.
-      //-link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome-all.min.css',  type='text/css')
+      link(rel='stylesheet', href='/_css/fontawesome/css/fontawesome.min.css', type='text/css')
+      link(rel='stylesheet', href='/_css/fontawesome/css/brands.css', type='text/css')
 
       //- Icon Font Fork Awesome — a fork of Font Awesome: https://forkawesome.github.io
       //-
       //- The Fork Awesome set is smaller than fontawesome, but it has a few
       //- things fontawesome doesn’t have, like the square and alt (favicon)
       //- versions of the Mastodon icon.
-      link(rel='stylesheet' href=cburl('/_css/fork-awesome/css/fork-awesome.min.css') type='text/css')
+      //-link(rel='stylesheet' href=cburl('/_css/fork-awesome/css/fork-awesome.min.css') type='text/css')
 
       link(rel='stylesheet' href=cburl('/_css/site.css') type='text/css')
 
@@ -121,10 +122,10 @@ html.no-js(lang="")
 
                   p.icons
                     a(href='https://mastodon.social/@jmcclare', title='jmcclare on Mastodon')
-                      span.fa.fa-mastodon-square
+                      span.fa-brands.fa-mastodon
                     | &#32;
-                    a(href='https://twitter.com/jmcclare', title='jmcclare on Twitter')
-                      span.fa.fa-twitter-square
+                    a(href='https://x.com/jmcclare', title='jmcclare on Twitter')
+                      span.fa-brands.fa-x-twitter
 
     block bottom-bar
       #bottom-bar

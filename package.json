@@ -38,7 +38,7 @@
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.2.2",
     "debug": "^3.1.0",
-    "fork-awesome": "^1.0.11",
+    "fork-awesome": "^1.2.0",
     "jeet": "^7.2.0",
     "koa": "^2.5.0",
     "koa-error": "^3.2.0",

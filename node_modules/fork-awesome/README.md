@@ -1,16 +1,18 @@
 # Fork Awesome
 ### A fork of the iconic font and CSS toolkit
 
-Fork Awesome is a full suite of 705 pictographic icons for easy scalable vector graphics on websites, originally created by [Dave Gandy](https://twitter.com/davegandy) and now maintained by a community.
+[![npm-badge]][npm-link] [![all-contrib]](CONTRIBUTORS.md) [![jsdeliver-badge]][jsdeliver-link] [![cdnjs-badge]][cdnjs-link] [![build-status-badge]][build-status-link] [![matrix-badge]][matrix-link]
 
-Following concerns regarding [the development of Font Awesome](https://github.com/FortAwesome/Font-Awesome/issues/12199#issuecomment-362919956), the PR Freeze since Oct 2016 and the direction Fort Awesome is taking with the version 5.0 of their project, we are forking Font Awesome (4.7), in order to build on this incredible tool Dave Gandy has given us, while at the same time allowing this project to be run by a distributed community of contributors.
+**Fork Awesome is a suite of 796 pictographic and brand icons for easy, scalable vector graphics on websites and beyond.**
 
-A tremendous gratitude is given to the whole team behind [Font Awesome](https://fontawesome.com), and you are encouraged to support them and buy Font Awesome Pro for your project.
+This project, as the name suggests, began as a fork of [Font Awesome](https://fontawesome.com). Font Awesome was originally created by [Dave Gandy](https://twitter.com/davegandy) and ran as a community project. However, as Font Awesome developed, pull requests from the community stopped being accepted (October 2016) and as of version 5.0 [the build system became private](https://github.com/FortAwesome/Font-Awesome/issues/12199#issuecomment-362919956) (February 2018).
 
-Though If you believe in distributed open source design and wish to be part of this new adventure, please start submitting patches and suggestions of improvement.
+With gratitude to Dave Gandy and the Font Awesome team, [Julien](https://github.com/xuv) [Deswaef](https://merveilles.town/@xuv) forked Font Awesome 4.7 into [Fork Awesome 1.0](https://github.com/ForkAwesome/Fork-Awesome/releases/tag/1.0.0) in February 2018, to continue building the amazing resource in a fully free, libre and open-source fashion, with and for the wider community. After a period of extended inactivity (i.e. no release since February 2019), several Fork Awesome users [got](https://github.com/ForkAwesome/Fork-Awesome/issues/292) [together](https://github.com/ForkAwesome/Fork-Awesome/issues/235) to try and revive the project 🌱
+
+We are now catching up with backlogged issues and pull requests, updating technology and documentation — even reevaluating the project aims, as icon fonts gradually [become](https://www.irigoyen.dev/blog/2021/02/17/stop-using-icon-fonts/) [deprecated](https://cloudfour.com/thinks/seriously-dont-use-icon-fonts/). Come say hi in the [#forkawesome:matrix.org](https://matrix.to/#/#forkawesome:matrix.org) matrix room 🙂
 
 ## How to use
-There is a full page in our documentation website that explains [how to use Fork Awesome in your web project](http://forkawesome.github.io/Fork-Awesome/get-started/). It ranges from just pointing to a CSS file on a CDN, hosting it on your own server or even adapting the LESS and SCSS files to your own liking.
+There is a full page in our documentation website that explains [how to use Fork Awesome in your web project](https://forkaweso.me/Fork-Awesome/get-started/). It ranges from just pointing to a CSS file on a CDN, hosting it on your own server or even adapting the LESS and SCSS files to your own liking.
 
 ## License
 - The Fork Awesome font is licensed under the SIL OFL 1.1:
@@ -24,6 +26,8 @@ There is a full page in our documentation website that explains [how to use Fork
 
 Please read through our [contributing guidelines](https://github.com/ForkAwesome/Fork-Awesome/blob/master/CONTRIBUTING.md).
 Included are directions for opening issues, coding standards, and notes on development.
+
+We also take great pride in recognizing any contributions made to this project. Whether you've written a blogpost about it, fixed a typo in the documentation or submitted new icons or code patches, we will happily list you in our [contributors list](CONTRIBUTORS.md).
 
 ## Versioning
 
@@ -42,9 +46,6 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit http://semver.org.
 
-## Original author of Font Awesome:
-- [Dave Gandy](https://github.com/davegandy)
-
 ## Component
 To include as a [component](https://github.com/componentjs/component), just run
 
@@ -56,7 +57,7 @@ Or add
 
 to the `dependencies` in your `component.json`.
 
-## Building on Fork Awesome
+## Building Fork Awesome
 
 **Before you can build the project**, you must first have the following installed:
 
@@ -64,30 +65,60 @@ to the `dependencies` in your `component.json`.
 - Ruby Development Headers
   - **Ubuntu:** `sudo apt-get install ruby-dev` *(Only if you're __NOT__ using `rbenv` or `rvm`)*
   - **Windows:** [DevKit](http://rubyinstaller.org/)
+  - **macOS:** no extra step required
 - [Bundler](http://bundler.io/) (Run `gem install bundler` to install).
 - [Node Package Manager (aka. `npm`)](https://docs.npmjs.com/getting-started/installing-node)
+- Tools required to build the font:
+  - **Ubuntu:** `sudo apt-get install fontforge woff-tools woff2`
 
 From the root of the repository, install the tools used to develop.
 
     $ bundle install
-    $ npm install
+    $ npm ci
 
 Build the font:
 
-    $:/src/icons make
+    $ make -C src/icons
 
 Build the web documentation:
 
     $ npm run build
 
-Or serve it on a local server on http://localhost:7998/Fork-Awesome/:
+Or serve it on a local server on http://localhost:7998:
 
     $ npm run dev
 
-To deploy the project and documentation on GH pages:
+### Build the font in a Docker container
 
-    $ jgd -n
+Another possibility is to build the font using the Dockerfile provided.
 
-## Badges
+First, build the Docker image:
 
-[![](https://data.jsdelivr.com/v1/package/npm/fork-awesome/badge)](https://www.jsdelivr.com/package/npm/fork-awesome)
+    $ docker build -t fa-builder .
+
+Then, run the Docker container:
+
+    $ docker run --rm -it \
+        -u $(id -u):$(id -g) \
+        -v $(pwd):$(pwd) \
+        -w $(pwd) \
+        fa-builder
+
+Within the container, build the font:
+
+    $ bundle install --path vendor/bundle
+    $ npm ci
+    $ make -C src/icons
+
+<!--- reference links for badges -->
+[all-contrib]: https://img.shields.io/badge/all_contributors-128-orange.svg "All Contributors badge"
+[build-status-badge]: https://travis-ci.org/ForkAwesome/Fork-Awesome.svg?branch=master "Build status badge"
+[build-status-link]: https://travis-ci.org/ForkAwesome/Fork-Awesome
+[cdnjs-badge]: https://img.shields.io/cdnjs/v/fork-awesome.svg "CDNJS badge"
+[cdnjs-link]: https://cdnjs.com/libraries/fork-awesome
+[jsdeliver-badge]: https://img.shields.io/jsdelivr/npm/hm/fork-awesome "JSDeliver badge"
+[jsdeliver-link]: https://www.jsdelivr.com/package/npm/fork-awesome
+[npm-badge]: https://img.shields.io/npm/v/fork-awesome.svg?colorB=CB3837 "NPM badge"
+[npm-link]: https://www.npmjs.com/package/fork-awesome
+[matrix-badge]: https://img.shields.io/matrix/forkawesome:matrix.org?label=%23forkawesome%3Amatrix.org "chat (matrix) badge"
+[matrix-link]: https://matrix.to/#/#forkawesome:matrix.org
